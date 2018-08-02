@@ -9,29 +9,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class TareaService {
 
   url_tareas: string = "http://localhost:8000/tareas";
-  url_estados: string = "http://localhost:8000/estados";
+
 
   constructor(private http: HttpClient) { }
 
   tareas: Array<Tarea> = [
-    new Tarea(1, 'Comprar leche', 'Y pañales para el bebe'),
-    new Tarea(2, 'Hacer Taller Angular', 'Falta empezar...'),
-    new Tarea(3, 'Preparar papers', 'Por fin')
+    new Tarea(1, 'Comprar leche', 'Y pañales para el bebe', 'null', 'null'),
+    new Tarea(2, 'Hacer Taller Angular', 'Falta empezar...', 'null', 'null'),
+    new Tarea(3, 'Preparar papers', 'Por fin','null', 'null')
   ];
 
   getTareas()  {
     return this.http.get(`${this.url_tareas}`)
   }
-  getEstados()  {
-    return this.http.get(`${this.url_estados}`)
-  }
-
+ 
   crearTarea(tarea: Object) {
     return this.http.post(`${this.url_tareas}`, tarea)
   }
 
   updateOrganizacion(organizacion: Object, id: String) {
-    return this.http.put(`${this.url_tareas}/${id}`, organizacion, httpOptions)
+    return this.http.put(`${this.url_tareas}/${id}`, organizacion)
   }
 
   deleteOrganizacion(id: String) {
