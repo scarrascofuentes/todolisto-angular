@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   constructor(public tareaService: TareaService) {
     this.tareas = [];
-    this.newTarea = new Tarea(null, null, null);
+    this.newTarea = new Tarea(null, null, null, null, null);
   }
 
   ngOnInit() {
